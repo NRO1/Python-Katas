@@ -1,21 +1,31 @@
-def monotonic_array(lst):
+
+def matrix_avg(mat, rows=None):
     """
-    1 Kata
+    2 Kata
 
-    This function returns True/False if the given list is monotonically increased or decreased
+    This function gets a 3*3 matrix (list of 3 lists) and returns the average of all elements
+    The 'rows' optional argument (with None as default) indicating which rows should be included in the average calculation
 
-    :param lst: list of numbers (int, floats)
-    :return: bool: indicating for monotonicity
+    :param mat: 3*3 matrix
+    :param rows: list of unique integers in the range [0, 2] and length of maximum 3
+    :return: int - the average values
     """
-    lst1, lst2 = [], []
-    lst1.extend(lst)
-    lst2.extend(lst)
+    single_mat = []
 
-    lst1.sort() 
-    lst2.sort(reverse=True)
+    if (rows != None):
+        rows +=1
 
-    if (lst1 == lst or lst2 == lst):
-        return True
-    else:
-        return False
+    for lst in mat[0:rows]:
+        for num in lst[0:]:
+            single_mat.append(num)
+            print(single_mat)
+        
+    avg = sum(single_mat) / len(single_mat)
+    return avg
+
+
+mat = [[1,2,3],[1,2,3],[4,5,6]]
+x = matrix_avg(mat)
+print(x)
+
         
